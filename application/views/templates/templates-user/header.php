@@ -27,8 +27,8 @@
                         <a class="nav-item nav-link" href="<?= base_url('user'); ?>">Profil Saya</a>
                         <a class="nav-item nav-link" href="<?= base_url('auth/logout/postLogout'); ?>"><i class="fas fa-fw fa-login"></i> Log out</a>
                     <?php } else { ?>
-                        <a class="nav-item nav-link" href="<?= base_url('auth/register'); ?>"><i class="fas fa-fw fa-login"></i> Daftar</a>
-                        <a class="nav-item nav-link" href="<?= base_url('auth/login'); ?>"><i class="fas fa-fw fa-login"></i> Log in</a>
+                        <a class="nav-item nav-link" data-toggle="modal" data-target="#daftarModal" href="javascript:void(0)"><i class="fas fa-fw fa-login"></i> Daftar</a>
+                        <a class="nav-item nav-link" data-toggle="modal" data-target="#loginModal" href="javascript:void(0)"><i class="fas fa-fw fa-login"></i> Log in</a>
                     <?php } ?>
                     <span class="nav-item nav-link" style="margin-left: 20px;">Selamat Datang <b><?php echo isset($user['nama']) ? $user['nama'] : $user; ?></b></span>
                 </div>

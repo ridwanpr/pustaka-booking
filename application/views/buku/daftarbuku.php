@@ -3,6 +3,7 @@
     <div class="x_panel">
         <div class="x_content">
             <!-- Tampilkan semua produk -->
+            <?= $this->session->flashdata('message'); ?>
             <div class="row">
                 <!-- looping products -->
                 <?php foreach ($buku as $buku_item) { ?>

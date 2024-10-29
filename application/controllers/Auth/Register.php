@@ -38,8 +38,8 @@ class Register extends CI_Controller
         ];
 
         $this->UserModel->saveData($data);
-        $this->session->set_flashdata('message', '<div class="alert alert-success alert-message" role="alert">Selamat! akun anda sudah dibuat.</div>');
-        redirect('auth/login');
+        $this->session->set_flashdata('message', '<div class="alert alert-success alert-message" role="alert">Selamat! akun anda sudah dibuat. Silahkan login</div>');
+        redirect(base_url());
     }
 
     private function setValidationRules()
