@@ -23,7 +23,10 @@
                 <div class="navbar-nav">
                     <a class="nav-item nav-link active" href="<?= base_url(); ?>">Beranda <span class="sr-only">(current)</span></a>
                     <?php if (!empty($this->session->userdata('email'))) { ?>
-                        <a class="nav-item nav-link" href="#">Booking Buku</a>
+                        <a class="nav-item nav-link" href="<?= base_url('booking'); ?>">Booking
+                            <strong><?= $this->ModelBooking->getDataWhere('temp', ['email_user' => $this->session->userdata('email')])->num_rows(); ?></strong>
+                            Buku
+                        </a>
                         <a class="nav-item nav-link" href="<?= base_url('user'); ?>">Profil Saya</a>
                         <a class="nav-item nav-link" href="<?= base_url('auth/logout/postLogout'); ?>"><i class="fas fa-fw fa-login"></i> Log out</a>
                     <?php } else { ?>
@@ -36,3 +39,4 @@
         </div>
     </nav>
     <div class="container mt-5">
+        <?= $this->session->flashdata('message'); ?>

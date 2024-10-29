@@ -1,9 +1,8 @@
 <?= $this->session->flashdata('pesan'); ?>
-<div style="padding: 25px;">
+<div style="padding: 20px 0;">
     <div class="x_panel">
         <div class="x_content">
             <!-- Tampilkan semua produk -->
-            <?= $this->session->flashdata('message'); ?>
             <div class="row">
                 <!-- looping products -->
                 <?php foreach ($buku as $buku_item) { ?>
