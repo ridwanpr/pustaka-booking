@@ -1,5 +1,5 @@
 <!-- Begin Page Content -->
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <div class="col-lg-6 justify-content-x">
             <?= $this->session->flashdata('message'); ?>
@@ -25,6 +25,5 @@
         </div>
     </div>
 </div>
-<!-- /.container-fluid -->
 </div>
 <!-- End of Main Content -->

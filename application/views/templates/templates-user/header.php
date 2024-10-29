@@ -30,7 +30,7 @@
                         <a class="nav-item nav-link" href="<?= base_url('auth/register'); ?>"><i class="fas fa-fw fa-login"></i> Daftar</a>
                         <a class="nav-item nav-link" href="<?= base_url('auth/login'); ?>"><i class="fas fa-fw fa-login"></i> Log in</a>
                     <?php } ?>
-                    <span class="nav-item nav-link" style="margin-left: 20px;">Selamat Datang <b><?= $user; ?></b></span>
+                    <span class="nav-item nav-link" style="margin-left: 20px;">Selamat Datang <b><?php echo isset($user['nama']) ? $user['nama'] : $user; ?></b></span>
                 </div>
             </div>
         </div>

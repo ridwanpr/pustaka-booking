@@ -1,5 +1,5 @@
 <!-- Begin Page Content -->
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <div class="col-lg-9">
             <form action="<?= base_url('user/postUbahProfile'); ?>" method="POST" enctype="multipart/form-data">
@@ -42,6 +42,5 @@
         </div>
     </div>
 </div>
-<!-- /.container-fluid -->
 </div>
 <!-- End of Main Content -->

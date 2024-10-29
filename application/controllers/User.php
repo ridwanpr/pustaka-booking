@@ -16,7 +16,6 @@ class User extends CI_Controller
         $data['user'] = $this->UserModel->checkUser(['email' => $this->session->userdata('email')])->row_array();
         $this->callTemplate($data);
         $this->load->view('user/index', $data);
-        $this->load->view('layouts/partials/dashboard/_footer');
     }
 
     public function ubahProfil()
@@ -25,7 +24,6 @@ class User extends CI_Controller
         $data['user'] = $this->UserModel->checkUser(['email' => $this->session->userdata('email')])->row_array();
         $this->callTemplate($data);
         $this->load->view('user/ubah-profile', $data);
-        $this->load->view('layouts/partials/dashboard/_footer');
     }
 
     public function postUbahProfile()
@@ -74,9 +72,8 @@ class User extends CI_Controller
 
     private function callTemplate($data)
     {
-        $this->load->view('layouts/partials/dashboard/_header', $data);
-        $this->load->view('layouts/partials/dashboard/_sidebar', $data);
-        $this->load->view('layouts/partials/dashboard/_topbar', $data);
+        $this->load->view('templates/templates-user/header', $data);
+        $this->load->view('templates/templates-user/footer', $data);
     }
 
     private function setValidationRules()
