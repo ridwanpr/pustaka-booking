@@ -5,112 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $judul; ?></title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Trebuchet, Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            color: #333;
-            background-color: #fff;
-            font-size: 12pt;
-        }
-
-        .header-table {
-            width: 100%;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #3498db;
-        }
-
-        .header-table td {
-            padding: 10px;
-        }
-
-        .logo {
-            width: 120px;
-            text-align: left;
-        }
-
-        .title {
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        .title h1 {
-            font-size: 24pt;
-            color: #2c3e50;
-            margin: 0;
-        }
-
-        .document-info {
-            text-align: right;
-            font-size: 10pt;
-        }
-
-        .booking-details {
-            width: 100%;
-            margin: 20px 0;
-            border-collapse: collapse;
-        }
-
-        .booking-details td {
-            padding: 8px;
-            border: 1px solid #dee2e6;
-            font-size: 10pt;
-        }
-
-        .booking-details .label {
-            background-color: #f8f9fa;
-            font-weight: bold;
-            width: 150px;
-        }
-
-        .customer-name {
-            font-weight: bold;
-            color: #3498db;
-        }
-
-        .books-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background-color: #fff;
-        }
-
-        .books-table th {
-            background-color: #3498db;
-            color: #fff;
-            padding: 12px;
-            text-align: left;
-            font-size: 11pt;
-        }
-
-        .books-table td {
-            padding: 10px;
-            border: 1px solid #dee2e6;
-            font-size: 10pt;
-        }
-
-        .books-table tr:nth-child(even) {
-            background-color: #f8f9fa;
-        }
-
-        .footer {
-            width: 100%;
-            margin-top: 30px;
-            border-top: 1px solid #dee2e6;
-            text-align: center;
-            font-size: 9pt;
-            color: #6c757d;
-            padding-top: 20px;
-        }
-
-        .note {
-            font-size: 9pt;
-            color: #666;
-            text-align: center;
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="<?= base_url('assets/'); ?>css/booking-pdf.css">
 </head>
 
 <body>
@@ -132,7 +27,7 @@
 
     <table class="booking-details">
         <tr>
-            <td class="label">ID Booking</td>
+            <td class="label">Kode Booking</td>
             <td colspan="3"><?= $booking['id_booking']; ?></td>
         </tr>
         <tr>
