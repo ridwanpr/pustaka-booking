@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pustaka-Booking | <?= $judul; ?></title>
-    <link rel="icon" type="image/png" href="<?= base_url('assets/img/logo/'); ?>logo-pb.png">
+    <link rel="icon" type="image/png" href="<?= base_url('assets/img/'); ?>dummy-book.png">
     <link rel="stylesheet" href="<?= base_url('assets/'); ?>user/css/bootstrap.css">
     <link href="<?= base_url('assets/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="<?= base_url('assets/'); ?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css">
