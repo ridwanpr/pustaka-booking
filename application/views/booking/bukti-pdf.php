@@ -16,7 +16,7 @@
             </td>
             <td class="title">
                 <h1>Bukti Booking Pustaka Booking</h1>
-                <div style="font-size: 10pt; color: #6c757d;">Digital Booking Receipt</div>
+                <div class="sub-title">Digital Booking Receipt</div>
             </td>
             <td class="document-info">
                 <strong>No: <?= $booking['id_booking']; ?></strong><br>
@@ -42,8 +42,8 @@
         <tr>
             <td>
                 <?php foreach ($useraktif as $u): ?>
-                    <h2 style="margin: 0 0 10px 0;">Terima kasih, <span class="customer-name"><?= $u->nama; ?></span></h2>
-                    <p style="margin: 0;">Berikut adalah detail buku yang telah dibooking:</p>
+                    <h2 class="greeting">Terima kasih, <span class="customer-name"><?= $u->nama; ?></span></h2>
+                    <p class="info-text">Berikut adalah detail buku yang telah dibooking:</p>
                 <?php endforeach; ?>
             </td>
         </tr>
@@ -76,7 +76,7 @@
 
     <div class="note">
         <p>Dokumen ini diterbitkan secara digital dan sah sebagai bukti booking.</p>
-        <p style="font-family: monospace;">Generated: <?= date('d M Y H:i:s'); ?></p>
+        <p class="generated">Generated: <?= date('d M Y H:i:s'); ?></p>
     </div>
 
     <div class="footer">
