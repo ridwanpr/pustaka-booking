@@ -33,7 +33,7 @@
                         <a class="nav-item nav-link" data-toggle="modal" data-target="#daftarModal" href="javascript:void(0)"><i class="fas fa-fw fa-login"></i> Daftar</a>
                         <a class="nav-item nav-link" data-toggle="modal" data-target="#loginModal" href="javascript:void(0)"><i class="fas fa-fw fa-login"></i> Log in</a>
                     <?php } ?>
-                    <span class="nav-item nav-link" style="margin-left: 20px;">Selamat Datang <b><?php echo isset($user['nama']) ? $user['nama'] : $user; ?></b></span>
+                    <span class="nav-item nav-link" style="margin-left: 20px;">Selamat Datang <b><?= $this->session->userdata('nama'); ?></b></span>
                 </div>
             </div>
         </div>

@@ -74,7 +74,8 @@ class Login extends CI_Controller
         $userData = [
             'id_user' => $user['id'],
             'email' => $user['email'],
-            'role_id' => $user['role_id']
+            'role_id' => $user['role_id'],
+            'nama' => $user['nama'],
         ];
 
         $this->session->set_userdata($userData);
@@ -86,4 +87,3 @@ class Login extends CI_Controller
         redirect('auth/login');
     }
 }
-

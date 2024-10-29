@@ -118,4 +118,72 @@ class Booking extends CI_Controller
             redirect(base_url('booking'));
         }
     }
+
+    public function bookingSelesai($where)
+    {
+        $this->db->query("UPDATE buku, temp SET buku.dibooking = buku.dibooking + 1, buku.stok = buku.stok - 1 WHERE buku.id = temp.id_buku");
+
+        $currentDate = date('Y-m-d');
+
+        $bookingData = [
+            'id_booking' => $this->ModelBooking->kodeOtomatis('booking', 'id_booking'),
+            'tgl_booking' => date('Y-m-d H:i:s'),
+            'batas_ambil' => date('Y-m-d', strtotime('+2 days', strtotime($currentDate))),
+            'id_user' => $where
+        ];
+
+        $this->ModelBooking->insertData('booking', $bookingData);
+        $this->ModelBooking->simpanDetail($where);
+        $this->ModelBooking->kosongkanData('temp');
+
+        redirect(base_url() . 'booking/info');
+    }
+
+    public function info()
+    {
+        $userId = $this->session->userdata('id_user');
+        $data['user'] = $this->session->userdata('nama');
+        $data['judul'] = "Selesai Booking";
+
+        $data['useraktif'] = $this->UserModel->checkUser(['id' => $userId])->result();
+
+        $data['items'] = $this->db->query("
+        SELECT * 
+        FROM booking AS bo 
+        JOIN booking_detail AS d ON d.id_booking = bo.id_booking 
+        JOIN buku AS bu ON d.id_buku = bu.id 
+        WHERE bo.id_user = '$userId'")->result_array();
+
+        $this->load->view('templates/templates-user/header', $data);
+        $this->load->view('booking/info-booking', $data);
+        $this->load->view('templates/templates-user/modal');
+        $this->load->view('templates/templates-user/footer');
+    }
+
+    public function exportToPdf()
+    {
+        $id_user = $this->session->userdata('id_user');
+        $data['user'] = $this->session->userdata('nama');
+        $data['judul'] = "Cetak Bukti Booking";
+        $data['useraktif'] = $this->UserModel->checkUser(['id' => $id_user])->result();
+
+        $data['items'] = $this->db->query("
+        SELECT *
+        FROM booking bo
+        JOIN booking_detail d ON d.id_booking = bo.id_booking
+        JOIN buku bu ON d.id_buku = bu.id
+        WHERE bo.id_user = '$id_user'")->result_array();
+
+        $this->load->library('dompdf_gen');
+        $this->load->view('booking/bukti-pdf', $data);
+
+        $paper_size = 'A4';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+
+        $this->dompdf->set_paper($paper_size, $orientation);
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("bukti-booking-$id_user.pdf", array('Attachment' => 0));
+    }
 }
