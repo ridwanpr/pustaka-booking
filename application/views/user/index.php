@@ -1,5 +1,5 @@
 <!-- Begin Page Content -->
-<div class="container">
+<div class="container<?= $user['role_id'] == 1 ? '-fluid' : ''; ?>">
     <div class="row">
         <div class="col-lg-6 justify-content-x">
             <?= $this->session->flashdata('message'); ?>

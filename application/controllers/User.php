@@ -14,16 +14,28 @@ class User extends CI_Controller
     {
         $data['title'] = 'Profil Saya';
         $data['user'] = $this->UserModel->checkUser(['email' => $this->session->userdata('email')])->row_array();
-        $this->callTemplate($data);
+        $role_id = $data['user']['role_id'];
+
+        $this->callTemplate($data, $role_id);
         $this->load->view('user/index', $data);
+
+        if ($role_id == 1) {
+            $this->load->view('layouts/partials/dashboard/_footer');
+        }
     }
 
     public function ubahProfil()
     {
         $data['title'] = 'Ubah Profil';
         $data['user'] = $this->UserModel->checkUser(['email' => $this->session->userdata('email')])->row_array();
-        $this->callTemplate($data);
+        $role_id = $data['user']['role_id'];
+
+        $this->callTemplate($data, $role_id);
         $this->load->view('user/ubah-profile', $data);
+
+        if ($role_id == 1) {
+            $this->load->view('layouts/partials/dashboard/_footer');
+        }
     }
 
     public function postUbahProfile()
@@ -43,7 +55,7 @@ class User extends CI_Controller
 
         //jika ada gambar yang akan diupload
         $upload_image = $_FILES['image']['name'];
-        
+
         if ($upload_image) {
             $config['upload_path'] = './assets/img/profile/';
             $config['allowed_types'] = 'gif|jpg|png|jpeg|svg|jfif';
@@ -70,10 +82,16 @@ class User extends CI_Controller
         redirect('user');
     }
 
-    private function callTemplate($data)
+    private function callTemplate($data, $role_id)
     {
-        $this->load->view('templates/templates-user/header', $data);
-        $this->load->view('templates/templates-user/footer', $data);
+        if ($role_id == 1) {
+            $this->load->view('layouts/partials/dashboard/_header', $data);
+            $this->load->view('layouts/partials/dashboard/_sidebar', $data);
+            $this->load->view('layouts/partials/dashboard/_topbar', $data);
+        } else {
+            $this->load->view('templates/templates-user/header', $data);
+            $this->load->view('templates/templates-user/footer', $data);
+        }
     }
 
     private function setValidationRules()
