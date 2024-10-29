@@ -174,6 +174,8 @@ class Booking extends CI_Controller
         JOIN buku bu ON d.id_buku = bu.id
         WHERE bo.id_user = '$id_user'")->result_array();
 
+        $data['booking'] = $this->ModelBooking->findBookingById($data['items'][0]['id_booking']);
+
         $this->load->library('dompdf_gen');
         $this->load->view('booking/bukti-pdf', $data);
 

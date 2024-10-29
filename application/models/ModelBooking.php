@@ -109,4 +109,10 @@ class ModelBooking extends CI_Model
         $kodejadi = date('dmY') . $kodemax;
         return $kodejadi;
     }
+
+    public function findBookingById($bookingId)
+    {
+        $this->db->where('id_booking', $bookingId);
+        return $this->db->get('booking')->row_array();
+    }
 }
