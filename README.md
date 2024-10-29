@@ -34,9 +34,23 @@ $db['default'] = array(
 );
 ```
 
-## Run Project
+5. Import database dengan menggunakan file `ci_pustaka_booking.sql`
 
+## Run Project
 Cukup jalankan webserver dan buka `base_url` di browser.
+
+## Default User
+Secara default, aplikasi ini mempunyai 2 user.:
+
+### Admin
+* Email: `admin@gmail.com`
+* Password: `12345678`
+* Role: `admin`
+
+### User
+* Email: `user@gmail.com`
+* Password: `12345678`
+* Role: `user`
 
 ## License
 

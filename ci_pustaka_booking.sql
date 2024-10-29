@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 29, 2024 at 08:26 PM
+-- Generation Time: Oct 29, 2024 at 08:30 PM
 -- Server version: 10.11.5-MariaDB-log
 -- PHP Version: 8.2.10
 
@@ -34,13 +34,6 @@ CREATE TABLE `booking` (
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
---
--- Dumping data for table `booking`
---
-
-INSERT INTO `booking` (`id_booking`, `tgl_booking`, `batas_ambil`, `id_user`) VALUES
-('30102024001', '2024-10-30', '2024-11-01', 8);
-
 -- --------------------------------------------------------
 
 --
@@ -52,14 +45,6 @@ CREATE TABLE `booking_detail` (
   `id_booking` varchar(12) NOT NULL,
   `id_buku` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `booking_detail`
---
-
-INSERT INTO `booking_detail` (`id`, `id_booking`, `id_buku`) VALUES
-(4, '30102024001', 4),
-(5, '30102024001', 8);
 
 -- --------------------------------------------------------
 
