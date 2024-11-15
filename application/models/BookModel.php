@@ -63,12 +63,18 @@ class BookModel extends CI_Model
     {
         $this->db->update('kategori', $data, $where);
     }
-    
+
     public function joinKategoriBuku($where)
     {
         $this->db->from('buku');
         $this->db->join('kategori', 'kategori.id = buku.id_kategori');
         $this->db->where($where);
         return $this->db->get();
+    }
+
+    public function getLimitBuku()
+    {
+        $this->db->limit(5);
+        return $this->db->get('buku');
     }
 }

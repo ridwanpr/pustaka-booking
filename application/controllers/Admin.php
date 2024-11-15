@@ -16,7 +16,7 @@ class Admin extends CI_Controller
         $data['title'] = 'Dashboard';
         $data['user'] = $this->UserModel->checkUser(['email' => $this->session->userdata('email')])->row_array();
         $data['anggota'] = $this->UserModel->getUserLimit()->result_array();
-        $data['buku'] = $this->BookModel->getBuku()->result_array();
+        $data['buku'] = $this->BookModel->getLimitBuku()->result_array();
 
         $this->load->view('layouts/partials/dashboard/_header', $data);
         $this->load->view('layouts/partials/dashboard/_sidebar', $data);
@@ -24,4 +24,5 @@ class Admin extends CI_Controller
         $this->load->view('admin/index', $data);
         $this->load->view('layouts/partials/dashboard/_footer');
     }
+    
 }
