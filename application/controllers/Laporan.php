@@ -48,4 +48,27 @@ class Laporan extends MY_Controller
             $this->handleException($e);
         }
     }
+
+    public function laporan_buku_pdf()
+    {
+        $this->load->library('dompdf_gen');
+        $data['buku'] = $this->BookModel->getBuku()->result_array();
+
+        $this->load->view('buku/laporan_pdf_buku', $data);
+
+        $paper_size = 'A4';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan Data Buku.pdf", array('Attachment' => 0));
+    }
+
+    public function export_excel()
+    {
+        $data['title'] = 'Laporan Buku';
+        $data['buku'] = $this->BookModel->getBuku()->result_array();
+        $this->load->view('buku/export_excel_buku', $data);
+    }
 }
