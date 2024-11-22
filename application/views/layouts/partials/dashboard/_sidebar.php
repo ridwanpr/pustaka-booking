@@ -79,7 +79,7 @@
      </li>
 
      <li class="nav-item">
-         <a class="nav-link" href="">
+         <a class="nav-link" href="<?= base_url('laporanAnggota/laporan_anggota'); ?>">
              <i class="fas fa-fw fa-print"></i>
              <span>Laporan Data Anggota</span></a>
      </li>
