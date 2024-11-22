@@ -85,7 +85,7 @@
      </li>
 
      <li class="nav-item">
-         <a class="nav-link" href="">
+         <a class="nav-link" href="<?= base_url('laporanPinjam/laporan_pinjam'); ?>">
              <i class="fas fa-fw fa-print"></i>
              <span>Laporan Data Peminjaman</span></a>
      </li>
