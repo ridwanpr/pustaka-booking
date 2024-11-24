@@ -51,7 +51,3 @@ Secara default, aplikasi ini mempunyai 2 user.:
 * Email: `user@gmail.com`
 * Password: `12345678`
 * Role: `user`
-
-## License
-
-Project ini dibuat oleh [ridwanpr](https://github.com/ridwanpr) dan berlisensi [MIT License](https://opensource.org/licenses/MIT).
